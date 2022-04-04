@@ -1,0 +1,4 @@
+# enable circuit breaker so that fallback for feign client works
+feign:
+  circuitbreaker:
+      enabled: true
