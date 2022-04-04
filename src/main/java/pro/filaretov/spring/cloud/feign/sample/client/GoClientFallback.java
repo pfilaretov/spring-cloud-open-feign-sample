@@ -14,4 +14,9 @@ public class GoClientFallback implements GoClient {
         return "This is callNonexistentPath fallback. additionalParam=" + message.getAdditionalParam() + ", canBeUsed="
             + message.getCanBeUsed();
     }
+
+    @Override
+    public String callException() {
+        return "This is callException fallback";
+    }
 }

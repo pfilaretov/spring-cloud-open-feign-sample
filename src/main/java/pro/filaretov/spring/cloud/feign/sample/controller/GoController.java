@@ -46,8 +46,26 @@ public class GoController {
         return "ok";
     }
 
-    @PostMapping("/exception")
-    public String alwaysThrowsException(@RequestBody MessageDto message) {
+    @GetMapping("/exception/{id}")
+    public String testExceptionFallback(@PathVariable String id) {
+        log.warn("Exception id received: {}", id);
+        String message = "Hello from id " + id;
+        String additionalParam = "Some useful info to pass to fallback";
+
+        MessageDto messageDto = MessageDto.builder()
+            .message(message)
+            .additionalParam(additionalParam)
+            .canBeUsed(false)
+            .build();
+        String result = goClient.callException();
+        log.warn("Exception id result: {}", result);
+        return "ok";
+    }
+
+    // methods called by Feign client:
+
+    @GetMapping("/exception")
+    public String alwaysThrowsException() {
         throw new RuntimeException("Oops!!");
     }
 
