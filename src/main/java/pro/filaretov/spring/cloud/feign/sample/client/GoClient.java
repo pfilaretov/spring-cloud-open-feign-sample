@@ -1,6 +1,7 @@
 package pro.filaretov.spring.cloud.feign.sample.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,5 +23,5 @@ public interface GoClient {
 
     // TODO - how to pass param for fallback in GET method?
     @GetMapping("/exception")
-    String callException();
+    String callException(@SpringQueryMap MessageDto message);
 }

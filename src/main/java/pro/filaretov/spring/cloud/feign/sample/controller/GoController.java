@@ -57,7 +57,7 @@ public class GoController {
             .additionalParam(additionalParam)
             .canBeUsed(false)
             .build();
-        String result = goClient.callException();
+        String result = goClient.callException(messageDto);
         log.warn("Exception id result: {}", result);
         return "ok";
     }

@@ -16,7 +16,7 @@ public class GoClientFallback implements GoClient {
     }
 
     @Override
-    public String callException() {
+    public String callException(MessageDto messageDto) {
         return "This is callException fallback";
     }
 }
